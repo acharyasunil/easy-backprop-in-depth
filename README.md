@@ -30,24 +30,36 @@ $$
 
 #### Activation function - Sigmoid(σ): Introduces non-linearity to the network and makes the gradients differentiable during backprop.
 ```math
-out_h1 = σ(h1) = 1 / (1 + exp(-h1))
+$$
+\begin{aligned}
+out_h1 = σ(h1) = 1 / (1 + exp(-h1)) \\
 out_h2 = σ(h2) = 1 / (1 + exp(-h2))
+\end{aligned}
+$$
 ```
 
 #### `o1` and `o2` are the output of the network that receives the weighted sum of intermediate layer neurons.
 ```math
-o1 = w5 * out_h1 + w6 * out_h2
-o2 = w7 * out_h1 + w8 * out_h2
-out_o1 = σ(o1)
+$$
+\begin{aligned}
+o1 = w5 * out_h1 + w6 * out_h2 \\
+o2 = w7 * out_h1 + w8 * out_h2 \\
+out_o1 = σ(o1) \\
 out_o2 = σ(o2)
+\end{aligned}
+$$
 ```
 
 #### Calculate the total error of the network
 Get the independent error component from each of the output nodes of the network, the loss function is `Mean Square Error (MSE)`. `1/2` to cancel out the power after derivative.
 ```math
-E1 = 1/2 * (t1 - out_o1)^2
-E2 = 1/2 * (t2 - out_o2)^2
+$$
+\begin{aligned}
+E1 = 1/2 * (t1 - out_o1)^2 \\
+E2 = 1/2 * (t2 - out_o2)^2 \\
 E total = E1 + E2
+\end{aligned}
+$$
 ```
 
 
@@ -59,55 +71,70 @@ E total = E1 + E2
 *** How do we do that? Partial derivative - chain rule. ***
 
 ```math
-δE_total/δw5 = δ(E1 + E2)/δw5
-δE_total/δw5 = δE1/δw5
+$$
+\begin{aligned}
+δE_total/δw5 = δ(E1 + E2)/δw5 \\
+δE_total/δw5 = δE1/δw5 \\
 δE_total/δw5 = δE1/δw5 = (δE1 / δout_o1) * (δout_o1 / δo1) * (δo1 / δw5)
+\end{aligned}
+$$
 ```
 
 Let's calculate these terms `(δE1 / δout_o1) * (δout_o1 / δo1) * (δo1 / δw5)` in order to get the overall contribution of `w5` towards the loss `E_total`.
 
 ```math
-
-[comment]: # (E1 is basically a MSE.)
-δE1/δout_o1 = δ(1/2 * (t1 - out_o1)^2)/δout_o1 = (out_o1 - t1)
-
-[comment]: # (Partial derivative of sigmoid function)
-δout_o1/δo1 = δ(σ(o1))/δo1 = out_o1 * (1 - out_o1)
-
-[comment]: # (As simple as it can get!)
+$$
+\begin{aligned}
+δE1/δout_o1 = δ(1/2 * (t1 - out_o1)^2)/δout_o1 = (out_o1 - t1) \\
+δout_o1/δo1 = δ(σ(o1))/δo1 = out_o1 * (1 - out_o1) \\
 δo1/δw5 = out_h1
-
+\end{aligned}
+$$
 ```
 
 #### Similar to the way we calculated `δE_total/δw5`, we calculate the contribution of `w6`, `w7` and `w8` towards the error `E_total`.
 ```math
-δE_total/δw5 = (out_o1 - t1) * out_o1 * (1 - out_o1) * out_h1
-δE_total/δw6 = (out_o1 - t1) * out_o1 * (1 - out_o1) * out_h2
-δE_total/δw7 = (out_o2 - t2) * out_o2 * (1 - out_o2) * out_h1
-δE_total/δw8 = (out_o2 - t2) * out_o2 * (1 - out_o2) * out_h2	
+$$
+\begin{aligned}
+δE_total/δw5 = (out_o1 - t1) * out_o1 * (1 - out_o1) * out_h1 \\
+δE_total/δw6 = (out_o1 - t1) * out_o1 * (1 - out_o1) * out_h2 \\
+δE_total/δw7 = (out_o2 - t2) * out_o2 * (1 - out_o2) * out_h1 \\
+δE_total/δw8 = (out_o2 - t2) * out_o2 * (1 - out_o2) * out_h2
+\end{aligned}
+$$
 ```
 
 #### Apply necessary chain rule to get the intermediate contrinutions.
 ```math
-δE1/δout_h1 = (out_o1 - t1) * out_o1 * (1 - out_o1) * w5
-δE2/δout_h1 = (out_o2 - t2) * out_o2 * (1 - out_o2) * w7
-δE_total/δout_h1 = (out_o1 - t1) * out_o1 * (1 -out_o1) * w5 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w7
-δE_total/δout_h2 = (out_o1 - t1) * out_o1 * (1 -out_o1) * w6 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w8		
+$$
+\begin{aligned}
+δE1/δout_h1 = (out_o1 - t1) * out_o1 * (1 - out_o1) * w5 \\
+δE2/δout_h1 = (out_o2 - t2) * out_o2 * (1 - out_o2) * w7 \\
+δE_total/δout_h1 = (out_o1 - t1) * out_o1 * (1 -out_o1) * w5 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w7 \\
+δE_total/δout_h2 = (out_o1 - t1) * out_o1 * (1 -out_o1) * w6 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w8
+\end{aligned}
+$$	
 ```																	
 #### Calculate the contribution of term `w1`, `w2`, `w3` and `w4` towards the error `E_total` by considering the intermediate hidden layer neurons.
 ```math
-δE_total/δw1 = δE_total/δout_h1 * δout_h1/δh1 * δh1/δw1
-δE_total/δw2 = δE_total/δout_h1 * δout_h1/δh1 * δh1/δw2
-δE_total/δw3 = δE_total/δout_h2 * δout_h2/δh2 * δh2/δw3																				
-δE_total/δw4 = δE_total/δout_h2 * δout_h2/δh2 * δh2/δw4																				
+$$
+\begin{aligned}
+δE_total/δw1 = δE_total/δout_h1 * δout_h1/δh1 * δh1/δw1 \\
+δE_total/δw2 = δE_total/δout_h1 * δout_h1/δh1 * δh1/δw2 \\
+δE_total/δw3 = δE_total/δout_h2 * δout_h2/δh2 * δh2/δw3 \\
+δE_total/δw4 = δE_total/δout_h2 * δout_h2/δh2 * δh2/δw4
+\end{aligned}
+$$																			
 ```
 
 #### Substitute the values calculated in the above step
 ```math
-δE_total/δw1 = ((out_o1 - t1) * out_o1 * (1 - out_o1) w5 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w7) * out_h1 * (1 - out_h1) * i1
-δE_total/δw2 = ((out_o1 - t1) * out_o1 * (1 - out_o1) w5 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w7) * out_h1 * (1 - out_h1) * i2
-δE_total/δw3 = ((out_o1 - t1) * out_o1 * (1 - out_o1) w6 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w8) * out_h2 * (1 - out_h2) * i1
+$$
+δE_total/δw1 = ((out_o1 - t1) * out_o1 * (1 - out_o1) w5 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w7) * out_h1 * (1 - out_h1) * i1 \\
+δE_total/δw2 = ((out_o1 - t1) * out_o1 * (1 - out_o1) w5 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w7) * out_h1 * (1 - out_h1) * i2 \\
+δE_total/δw3 = ((out_o1 - t1) * out_o1 * (1 - out_o1) w6 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w8) * out_h2 * (1 - out_h2) * i1 \\
 δE_total/δw4 = ((out_o1 - t1) * out_o1 * (1 - out_o1) w6 + (out_o2 - t2) * out_o2 * (1 - out_o2) * w8) * out_h2 * (1 - out_h2) * i2
+$$
 ```
 
 Phew!!!
