@@ -153,5 +153,6 @@ Phew!!!
 
 ### Effect of different learning rate on the total error convergence (refer excel sheet).
 
-
-<img src="images/learning_rate.png" alt="drawing" width="1024"/>
+<p>
+    <img src="images/learning_rate.png" alt="drawing" width="1024"/>
+</p>
