@@ -140,10 +140,12 @@ $$
 #### Substitute the values calculated in the above step
 ```math
 $$
+\begin{gather*}
 δE\_total/δw1 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w5 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w7) * out\_h1 * (1 - out\_h1) * i1 \\
 δE\_total/δw2 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w5 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w7) * out\_h1 * (1 - out\_h1) * i2 \\
 δE\_total/δw3 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w6 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w8) * out\_h2 * (1 - out\_h2) * i1 \\
 δE\_total/δw4 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w6 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w8) * out\_h2 * (1 - out\_h2) * i2
+\end{gather*}
 $$
 ```
 
