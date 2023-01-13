@@ -21,9 +21,10 @@ Once the gradients/derivatives are calculated with respect to each of the weight
 #### `h1` and `h2` are the neurons of the hidden layer that recieves the weighted sum of inputs.
 ```math
 $$
-h1 = w1 * i1 + w2 * i2
-$$
-h2 = w3 * i1 + w4 * 12
+\begin{aligned}
+h1 = w1 * i1 + w2 * i2 \\
+h2 = w3 * i1 + w4 * 12    
+\end{aligned}
 $$
 ```
 
