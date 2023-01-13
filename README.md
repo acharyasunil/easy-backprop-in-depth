@@ -160,3 +160,37 @@ Phew!!!
 ### Effect of different learning rate on the total error convergence (refer excel sheet).
 
 ![Learning rate comparison](/images/learning_rate.png)
+
+
+
+
+
+## Part 2 - Training Neural Network with constraints
+
+Inside of the directory `S3` contains a jupyter notebook.
+The Neural network is trained with a constraints like
+  - Less than 20k parameters.
+  - Less than 20 epochs.
+  - Use of BatchNormalization, Dropout, fully connected layer and Global Average Pooling (Adaptive).
+
+The Neural network architecture comprises of 2 convolution blocks \
+`(Conv2D) -> (BatchNorm2D) -> (RELU) -> (MaxPool2D)` with (in_channels, out_channels) of (1, 2) and (2, 4) respectively.
+Batch normalization is done after every Conv2D layer followed by the RELU activation function. MaxPooling is done to reduce the dimension of the input image.
+
+Adaptive Global Average pooling is performed with `7 x 7` to match the shape of the previous convolution output.
+
+A fully connected layer with dropouts of 5 - 10% is performed followed by the Linear layer that receives `196` features as an input and propagates through the 64 out_features. 1D batch normalization is done on the collapsed linear layer. RELU activation is performed after every 1D batch normalization steps.
+
+Total of 3 Linear layers with the in and out features:
+`196 -> 64 -> 32 -> 10`. A gradual transition from 196 features to 10 feature output representing the class at the last layer of the network. A log softmax is applied to get the confidence metric of the classification.
+
+> Model has a total parameter - 15318.
+
+> Validation Accuracy achieved - 98.61% on MNIST dataset.
+
+
+![Model Summary](/images/model_summary.png)
+
+
+
+
