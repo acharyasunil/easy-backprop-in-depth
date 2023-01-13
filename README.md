@@ -162,6 +162,4 @@ Phew!!!
 
 ### Effect of different learning rate on the total error convergence (refer excel sheet).
 
-<p>
-    <img src="/images/learning_rate.png" alt="drawing" width="1024"/>
-</p>
+<img src="https://github.com/acharyasunil/easy-backprop-in-depth/blob/dc85306d655496ea355ff5b502c9d72cd5482483/images/learning_rate.png" alt="drawing" width="1024"/>
