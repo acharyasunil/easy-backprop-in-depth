@@ -22,6 +22,7 @@ Once the gradients/derivatives are calculated with respect to each of the weight
 ```math
 $$
 h1 = w1 * i1 + w2 * i2
+$$
 h2 = w3 * i1 + w4 * 12
 $$
 ```
