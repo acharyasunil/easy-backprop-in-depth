@@ -15,8 +15,11 @@ Once the gradients/derivatives are calculated with respect to each of the weight
 
 `This update process is done N times until the local minima is reached and the overall loss of network is reduced.`
 
-
-![image info](/images/nn.png)
+<details>
+  <summary>Some summary</summary>
+  ![Description](/images/nn.png)
+</details>
+![image info](https://github.com/acharyasunil/easy-backprop-in-depth/blob/56c4d64085599ef14edd8240384abe447ed641cd/images/nn.png)
 
 
 #### `h1` and `h2` are the neurons of the hidden layer that recieves the weighted sum of inputs.
