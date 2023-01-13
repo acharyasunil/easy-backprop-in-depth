@@ -159,4 +159,4 @@ Phew!!!
 
 ### Effect of different learning rate on the total error convergence (refer excel sheet).
 
-![Neural net backpropagation](/images/learning_rate.png)
+![Learning rate comparison](/images/learning_rate.png)
