@@ -15,11 +15,8 @@ Once the gradients/derivatives are calculated with respect to each of the weight
 
 `This update process is done N times until the local minima is reached and the overall loss of network is reduced.`
 
-<!-- <details>
-  <summary>Some summary</summary>
-  ![Description](/images/nn.png)
-</details>
-![image info](https://github.com/acharyasunil/easy-backprop-in-depth/blob/56c4d64085599ef14edd8240384abe447ed641cd/images/nn.png) -->
+
+![Neural net backpropagation](/images/nn.png)
 
 
 #### `h1` and `h2` are the neurons of the hidden layer that recieves the weighted sum of inputs.
@@ -162,4 +159,4 @@ Phew!!!
 
 ### Effect of different learning rate on the total error convergence (refer excel sheet).
 
-<img src="https://github.com/acharyasunil/easy-backprop-in-depth/blob/dc85306d655496ea355ff5b502c9d72cd5482483/images/learning_rate.png" alt="drawing" width="1024"/>
+![Neural net backpropagation](/images/learning_rate.png)
