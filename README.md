@@ -98,7 +98,7 @@ $$
 ```
 
 
-#### Similar to the way we calculated `δE\_total/δw5`, we calculate the contribution of `w6`, `w7` and `w8` towards the error `E_total`.
+#### Similar to the way we calculated `δE_total/δw5`, we calculate the contribution of `w6`, `w7` and `w8` towards the error `E_total`.
 ```math
 $$
 \begin{gather*}
