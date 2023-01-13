@@ -16,7 +16,7 @@ Once the gradients/derivatives are calculated with respect to each of the weight
 `This update process is done N times until the local minima is reached and the overall loss of network is reduced.`
 
 
-![image info](images/nn.png)
+![image info](/images/nn.png)
 
 
 #### `h1` and `h2` are the neurons of the hidden layer that recieves the weighted sum of inputs.
@@ -154,5 +154,5 @@ Phew!!!
 ### Effect of different learning rate on the total error convergence (refer excel sheet).
 
 <p>
-    <img src="images/learning_rate.png" alt="drawing" width="1024"/>
+    <img src="/images/learning_rate.png" alt="drawing" width="1024"/>
 </p>
