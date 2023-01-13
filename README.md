@@ -15,11 +15,11 @@ Once the gradients/derivatives are calculated with respect to each of the weight
 
 `This update process is done N times until the local minima is reached and the overall loss of network is reduced.`
 
-<details>
+<!-- <details>
   <summary>Some summary</summary>
   ![Description](/images/nn.png)
 </details>
-![image info](https://github.com/acharyasunil/easy-backprop-in-depth/blob/56c4d64085599ef14edd8240384abe447ed641cd/images/nn.png)
+![image info](https://github.com/acharyasunil/easy-backprop-in-depth/blob/56c4d64085599ef14edd8240384abe447ed641cd/images/nn.png) -->
 
 
 #### `h1` and `h2` are the neurons of the hidden layer that recieves the weighted sum of inputs.
@@ -144,10 +144,14 @@ $$
 ```math
 $$
 \begin{gather*}
-δE\_total/δw1 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w5 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w7) * out\_h1 * (1 - out\_h1) * i1 \\
-δE\_total/δw2 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w5 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w7) * out\_h1 * (1 - out\_h1) * i2 \\
-δE\_total/δw3 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w6 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w8) * out\_h2 * (1 - out\_h2) * i1 \\
-δE\_total/δw4 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w6 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w8) * out\_h2 * (1 - out\_h2) * i2
+δE\_total/δw1 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w5 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w7) \\
+                * out\_h1 * (1 - out\_h1) * i1 \\
+δE\_total/δw2 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w5 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w7) \\
+                * out\_h1 * (1 - out\_h1) * i2 \\
+δE\_total/δw3 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w6 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w8) \\
+                * out\_h2 * (1 - out\_h2) * i1 \\
+δE\_total/δw4 = ((out\_o1 - t1) * out\_o1 * (1 - out\_o1) w6 + (out\_o2 - t2) * out\_o2 * (1 - out\_o2) * w8) \\
+                * out\_h2 * (1 - out\_h2) * i2
 \end{gather*}
 $$
 ```
